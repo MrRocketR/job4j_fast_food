@@ -1,4 +1,4 @@
-package ru.job4j.fast_food;
+package ru.job4j.fastfood;
 
 public class Main {
     public static void main(String[] args) {
