@@ -3,9 +3,9 @@ package ru.fastfood.order.controller;
 import lombok.Data;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ru.fastfood.order.*;
+import ru.fastfood.model.Order;
 import ru.fastfood.order.service.StartOrderService;
-import ru.fastfood.order.model.Order;
+
 
 
 
@@ -19,7 +19,7 @@ public class OrderController {
 
     @PutMapping("/")
     public ResponseEntity<Void> createOrder(@RequestBody Order order) {
-        Optional<Order> optionalPerson = orderService.createOrder(order.getCostumer());
+        Optional<Order> optionalPerson = orderService.createOrder(order);
         return optionalPerson.isPresent() ? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
     }
 

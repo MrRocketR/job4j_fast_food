@@ -7,5 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Dish {
+public class Customer {
+    private int id;
+    private String username;
+   private String password;
 }
