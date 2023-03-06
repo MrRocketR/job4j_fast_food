@@ -1,4 +1,4 @@
-package service;
+package ru.job4j.fastfood.dish.service;
 
 import org.springframework.stereotype.Service;
 import ru.fastfood.model.Dish;

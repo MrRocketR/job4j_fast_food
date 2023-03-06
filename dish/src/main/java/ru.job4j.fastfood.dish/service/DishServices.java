@@ -1,12 +1,10 @@
-package service;
+package ru.job4j.fastfood.dish.service;
 
 import org.springframework.stereotype.Service;
 import ru.fastfood.model.Dish;
-import ru.fastfood.model.Kitchen;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Collectors;
 
 @Service
 public class DishServices implements DishService {
@@ -40,6 +38,7 @@ public class DishServices implements DishService {
         Optional<Dish> deleted = Optional.of(dishes.get(id));
         if (deleted.isPresent()) {
             dishes.remove(id);
+            return deleted;
 
         }
         return Optional.empty();
