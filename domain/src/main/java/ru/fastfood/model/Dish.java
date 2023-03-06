@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 public class Dish {
     private int id;
+    private int people;
 }

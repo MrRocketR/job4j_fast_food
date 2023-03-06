@@ -1,14 +1,20 @@
 package service;
 
+import org.springframework.stereotype.Service;
 import ru.fastfood.model.Dish;
 
+import java.util.List;
+import java.util.Optional;
+
+@Service
 public interface DishService {
     void addDish(Dish dish);
 
-    void updateDish(Dish dish);
+    Optional<Dish> updateDish(Dish dish);
 
-    Dish getDishById(int id);
+    Optional<Dish> findById(int id);
 
-    Dish findByDish(Dish dish);
+    Optional<Dish> deleteById(int id);
 
+    List<Dish> showAllDishes();
 }
