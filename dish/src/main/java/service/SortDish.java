@@ -10,4 +10,6 @@ public interface SortDish {
 
     List<Dish> sortPortion(int people);
 
+    List<Dish> showAllDishes();
+
 }
