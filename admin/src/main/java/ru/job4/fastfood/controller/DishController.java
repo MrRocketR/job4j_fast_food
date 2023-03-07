@@ -13,10 +13,10 @@ import java.util.List;
 
 @Controller
 public class DishController {
-    private List<Dish> dishes = new ArrayList<>();
 
     @GetMapping("/dishes")
     private String showDishes(Model model) {
+        List<Dish> dishes = new ArrayList<>();
         RestTemplate restTemplate = new RestTemplate();
         String url = "http://localhost:8080/dish/";
         ResponseEntity<Dish[]> response =
