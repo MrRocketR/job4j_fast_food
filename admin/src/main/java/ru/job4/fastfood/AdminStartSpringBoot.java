@@ -12,6 +12,7 @@ import org.springframework.web.client.RestTemplate;
 public class AdminStartSpringBoot {
     public static void main(String[] args) {
         SpringApplication.run(AdminStartSpringBoot.class, args);
+        System.out.println("Go to http://localhost:8080/dishes");
     }
 
 }

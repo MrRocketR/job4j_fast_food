@@ -32,11 +32,16 @@ public class DishController {
 
     }
 
-    @GetMapping
+    @GetMapping("delete/{id]")
     private String deleteDish(@PathVariable int id) {
         RestTemplate restTemplate = new RestTemplate();
         String url = "http://localhost:8080/dish/" + id;
         return "redirect:dishes";
+    }
+
+    @GetMapping("/add")
+    private String createDish() {
+        return "add";
     }
 
     @PostMapping("/createDish")
