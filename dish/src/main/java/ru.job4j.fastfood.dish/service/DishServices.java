@@ -45,7 +45,7 @@ public class DishServices implements DishService {
     }
 
     @Override
-    public List<Dish> showAllDishes() {
+    public List<Dish> findAll() {
         return new ArrayList<>(dishes.values());
     }
 }

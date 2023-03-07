@@ -20,7 +20,7 @@ public class DishController {
 
     @GetMapping("/all")
     public List<Dish> findAll() {
-        return service.showAllDishes();
+        return service.findAll();
     }
 
     @GetMapping("/{id}")

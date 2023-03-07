@@ -16,5 +16,5 @@ public interface DishService {
 
     Optional<Dish> deleteById(int id);
 
-    List<Dish> showAllDishes();
+    List<Dish> findAll();
 }
