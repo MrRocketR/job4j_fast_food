@@ -1,10 +1,12 @@
 package ru.fastfood.order.service;
 
+import org.springframework.stereotype.Service;
 import ru.fastfood.model.Order;
 
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
 
+@Service
 public class StartOrderService implements OrderService {
     AtomicInteger id = new AtomicInteger();
 
@@ -14,3 +16,4 @@ public class StartOrderService implements OrderService {
         return Optional.of(order);
     }
 }
+

@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
+import ru.fastfood.model.Order;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,12 +20,12 @@ public class KafkaProducerConfig {
     private String kafkaServer;
 
     @Bean
-    public KafkaTemplate<Integer, String> kafkaTemplate() {
+    public KafkaTemplate<Integer, Order> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
     }
 
     @Bean
-    public ProducerFactory<Integer, String> producerFactory() {
+    public ProducerFactory<Integer, Order> producerFactory() {
         return new DefaultKafkaProducerFactory<>(producerConfigs());
     }
 

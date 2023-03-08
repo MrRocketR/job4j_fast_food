@@ -2,6 +2,7 @@ package ru.job4.fastfood.controller;
 
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
@@ -17,18 +18,13 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @RestController
 @RequestMapping("/notification")
+
 public class NotificationController {
 
     private final NotificationService service;
 
     public NotificationController(NotificationService service) {
         this.service = service;
-    }
-
-    @KafkaListener(topics = "messengers")
-    public void orderListener(ConsumerRecord<Integer, Order> input) {
-        Order order = input.value();
-        service.addOrder(order);
     }
 
     @GetMapping("/orders")

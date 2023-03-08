@@ -9,6 +9,7 @@ import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.config.KafkaListenerContainerFactory;
 import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
+import ru.fastfood.model.Order;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,18 +23,6 @@ public class KafkaConsumerConfig {
     private String kafkaGroupId;
 
     @Bean
-    public KafkaListenerContainerFactory<?> kafkaListenerContainerFactory() {
-        ConcurrentKafkaListenerContainerFactory<Integer, String> factory = new ConcurrentKafkaListenerContainerFactory<>();
-        factory.setConsumerFactory(consumerFactory());
-        return factory;
-    }
-
-    @Bean
-    public ConsumerFactory<Integer, String> consumerFactory() {
-        return new DefaultKafkaConsumerFactory<>(consumerConfigs());
-    }
-
-    @Bean
     public Map<String, Object> consumerConfigs() {
         Map<String, Object> props = new HashMap<>();
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaServer);
@@ -43,5 +32,17 @@ public class KafkaConsumerConfig {
         return props;
     }
 
+    @Bean
+    public KafkaListenerContainerFactory<?> kafkaListenerContainerFactory() {
+        ConcurrentKafkaListenerContainerFactory<Integer, Order> factory =
+                new ConcurrentKafkaListenerContainerFactory<>();
+        factory.setConsumerFactory(consumerFactory());
+        return factory;
+    }
+
+    @Bean
+    public ConsumerFactory<Integer, Order> consumerFactory() {
+        return new DefaultKafkaConsumerFactory<>(consumerConfigs());
+    }
 }
 

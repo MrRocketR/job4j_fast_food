@@ -1,5 +1,7 @@
 package ru.job4.fastfood.service;
 
+import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 import ru.fastfood.model.Order;
 import ru.job4.fastfood.repository.NotificationRepository;
@@ -21,4 +23,5 @@ public class NotificationService {
     public void addOrder(Order order) {
         repository.addOrder(order);
     }
+
 }
