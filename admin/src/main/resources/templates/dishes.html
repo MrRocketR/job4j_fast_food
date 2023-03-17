@@ -1,6 +1,8 @@
-<!DOCTYPE html>
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -14,22 +16,47 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Dish Admin Panel</title>
+
+    <title>Вкусно и в точку</title>
 </head>
 <body>
+
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Вкусно и в точку</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" th:href="@{/addDish}">Добавить блюдо</a>
+
+            </div>
+        </div>
+    </nav>
+</div>
+
 <div class="container">
     <div class="row">
         <table class="table">
             <thead>
             <tr>
-                <th scope="col">id</th>
-                <th scope="col">people</th>
+                <th scope="col">Название</th>
+                <th scope="col">Тип</th>
+                <th scope="col">Цена</th>
+                <th scope="col">Описание</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="dish: ${dishes}">
-                <td th:text="${dish.id}"></td>
-                <td th:text="${dish.people}"></td>
+                    <td th:text="${dish.name}"></td>
+                    <td th:text="${dish.type}"></td>
+                    <td th:text="${dish.price}"></td>
+                    <td th:text="${dish.description}"></td>
+                <td>
+                    <a th:href="@{|/formEditDish/${dish.id}|}">Редактировать</a>
+                    <a th:href="@{|/delete/${dish.id}|}">Удалить</a>
+                </td>
             </tr>
             </tbody>
         </table>
