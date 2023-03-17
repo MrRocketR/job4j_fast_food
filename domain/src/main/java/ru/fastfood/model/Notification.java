@@ -2,38 +2,31 @@ package ru.fastfood.model;
 
 import lombok.*;
 
-
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Getter
 @Setter
+@Builder
 @AllArgsConstructor
-@NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@NoArgsConstructor
 @Entity
-@Table(name = "orders")
-public class Order {
+@Table(name = "notifications")
+public class Notification {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     private int id;
 
-    private int amount;
+    @Column(name = "order_number")
+    private int orderNumber;
 
-    private String address;
+    @Column(name = "order_created_at")
+    private LocalDateTime orderCreatedAt;
 
-
-    //TODO переписать черещ ENUM
-
-    @Column(name = "status")
     private String status;
-
-    @Column(name = "created_at")
-    private LocalDateTime createdAt;
-
+    private String message;
 
 }
