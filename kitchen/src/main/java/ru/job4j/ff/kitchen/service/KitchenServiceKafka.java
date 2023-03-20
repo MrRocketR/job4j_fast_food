@@ -32,10 +32,9 @@ public class KitchenServiceKafka {
     }
 
     private void pause() {
-        try {
-            Thread.sleep(6000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+        int i = 0;
+        while(i < 6000) {
+            i++;
         }
     }
 }
